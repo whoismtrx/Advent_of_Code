@@ -15,9 +15,9 @@ every time the dial lands on 0, a counter is incremented. the code reads movemen
 ### part 2
 
 #### approach
-this solution calculates how many pairs (i, j), with `1 ≤ i ≤ n` and `1 ≤ j ≤ m`, satisfy `(i + j) % 5 == 0`. 
-instead of brute force, the program divides numbers into residue classes modulo 5 and counts how many ways residues from the two ranges can be combined to sum to a multiple of 5. it does so by first computing, for each residue, how many numbers in `1..n` and `1..m` fall into each class, then sums up the products of compatible pairs.
+it starts at position 50 on a 0-99 track. input is read from stdin, tokenized to handle potential commas or whitespace, and parsed as pairs of direction and steps. 
+for every step taken, the position `p` is updated: incrementing for 'R' (wrapping 99 to 0) and decrementing for 'L' (wrapping 0 to 99). if `p` hits 0 at any step, the total count `t` increases. finally, the total count is printed.
 
 #### complexity
-- **time complexity:** O(1), since all computations are done using simple arithmetic and array operations of fixed size.
-- **space complexity:** O(1), only small arrays and integer variables are used.
+- **time complexity:** O(S), where S is the total number of individual steps taken across all instructions.
+- **space complexity:** O(N), where N is the size of the input string stored in memory for tokenization.
